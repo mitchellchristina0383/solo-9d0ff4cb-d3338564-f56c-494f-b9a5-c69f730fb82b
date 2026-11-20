@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SOURCE_DIR: /data/source
+      OUTPUT_ROOT: /data/outputs
+      # CHUNK_BYTES: "4194304"        # copy chunk size, default 4 MiB
+      # RESHARD_SYNC: "false"         # "true" runs jobs inline (debug/tests)
+    volumes:
+      - ./sample/source:/data/source:ro   # read-only source checkpoint volume
+      - ./outputs:/data/outputs           # resharded shards + job state
+    restart: unless-stopped
