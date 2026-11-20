@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
-ENV SOURCE_DIR=/data/source \
+ENV SOURCE_DIR=/data/sample/source \
     OUTPUT_ROOT=/data/outputs
 
 EXPOSE 8000
